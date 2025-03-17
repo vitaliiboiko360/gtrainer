@@ -2,6 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { CreateLessonDto } from './dto/create-lesson.dto';
 import { UpdateLessonDto } from './dto/update-lesson.dto';
 
+import { MongoClient } from 'mongodb';
+
 @Injectable()
 export class LessonService {
   create(createLessonDto: CreateLessonDto) {
