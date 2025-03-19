@@ -1,6 +1,6 @@
 import { Connection } from 'mongoose';
 import { LessonSchema } from './lesson.schema';
-import { MONGODB_CONNECTION } from 'src/db/constants';
+import { MONGODB_CONNECTION } from '../db/constants';
 import { LESSON_MODEL } from './constants';
 
 export const lessonsProviders = [

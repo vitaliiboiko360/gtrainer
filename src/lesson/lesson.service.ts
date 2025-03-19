@@ -2,7 +2,7 @@ import { Model } from 'mongoose';
 import { Injectable, Inject } from '@nestjs/common';
 // import { CreateLessonDto } from './dto/create-lesson.dto';
 // import { UpdateLessonDto } from './dto/update-lesson.dto';
-import { Lesson } from './lesson.schema';
+import { Lesson } from './lesson.interface';
 import { LESSON_MODEL } from './constants';
 
 @Injectable()

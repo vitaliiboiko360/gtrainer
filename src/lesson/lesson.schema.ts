@@ -5,7 +5,7 @@ import { HydratedDocument } from 'mongoose';
 
 export type LessonDocument = HydratedDocument<Lesson>;
 
-type LineObject = { text: string; start: number; end: number };
+export type LineObject = { text: string; start: number; end: number };
 
 @Schema()
 export class Lesson {
