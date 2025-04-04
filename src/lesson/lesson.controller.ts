@@ -4,7 +4,7 @@ import {
   // Post,
   // Body,
   // Patch,
-  // Param,
+  Param,
   // Delete,
 } from '@nestjs/common';
 import { LessonService } from './lesson.service';
@@ -29,6 +29,11 @@ export class LessonController {
   // findOne(@Param('id') id: string) {
   //   return this.lessonService.findOne(+id);
   // }
+
+  @Get(':name')
+  findOne(@Param('name') name: string) {
+    return this.lessonService.findOne(name);
+  }
 
   // @Patch(':id')
   // update(@Param('id') id: string, @Body() updateLessonDto: UpdateLessonDto) {

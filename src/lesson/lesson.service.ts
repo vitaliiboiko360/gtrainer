@@ -24,6 +24,10 @@ export class LessonService {
   //   return `This action returns a #${id} lesson`;
   // }
 
+  findOne(name: string) {
+    return this.lessonModel.findOne({ name: name }).exec();
+  }
+
   // update(id: number, updateLessonDto: UpdateLessonDto) {
   //   return `This action updates a #${id} lesson`;
   // }
