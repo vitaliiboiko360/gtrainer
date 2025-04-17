@@ -4,12 +4,14 @@ import {
   // Post,
   // Body,
   // Patch,
+  Put,
   Param,
+  Body,
   // Delete,
 } from '@nestjs/common';
 import { LessonService } from './lesson.service';
 // import { CreateLessonDto } from './dto/create-lesson.dto';
-// import { UpdateLessonDto } from './dto/update-lesson.dto';
+import { UpdateLessonDto } from './dto/update-lesson.dto';
 
 @Controller('lessons')
 export class LessonController {
@@ -39,6 +41,16 @@ export class LessonController {
   // update(@Param('id') id: string, @Body() updateLessonDto: UpdateLessonDto) {
   //   return this.lessonService.update(+id, updateLessonDto);
   // }
+
+  @Put(':name')
+  update(
+    @Param('name')
+    name: string,
+    @Body()
+    updateLessonDto: UpdateLessonDto,
+  ) {
+    return this.lessonService.update(name, updateLessonDto);
+  }
 
   // @Delete(':id')
   // remove(@Param('id') id: string) {
