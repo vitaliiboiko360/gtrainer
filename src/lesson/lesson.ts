@@ -15,7 +15,6 @@ export type LineObject = {
 };
 
 export class LessonBase {
-  _id: string;
   name: string;
   audio: string;
   lines: Array<LineObject>;
