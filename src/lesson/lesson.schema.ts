@@ -1,5 +1,3 @@
-import * as mongoose from 'mongoose';
-
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
 
@@ -33,9 +31,3 @@ export class Lesson {
 }
 
 export const LessonSchema = SchemaFactory.createForClass(Lesson);
-
-export const LessonSchema2 = new mongoose.Schema({
-  name: String,
-  age: Number,
-  breed: String,
-});
