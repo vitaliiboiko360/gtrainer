@@ -49,6 +49,19 @@ export class LessonController {
     @Body()
     updateLessonDto: UpdateLessonDto,
   ) {
+    // console.log(`name == ${name}`);
+    // console.log(
+    //   `recieved data lines = ${JSON.stringify(
+    //     updateLessonDto.lines?.slice(0, 7).map((l) => {
+    //       return {
+    //         t: l.text,
+    //         s: l.start,
+    //         e: l.end,
+    //         tr: l.translations.map((t) => t.wordInEnglish).join(' '),
+    //       };
+    //     }),
+    //   )}`,
+    // );
     return this.lessonService.update(name, updateLessonDto);
   }
 
