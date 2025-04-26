@@ -1,0 +1,14 @@
+[Unit]
+Description=NestJS Backend API
+After=network.target
+
+[Service]
+ExecStartPre=npm run build
+ExecStart=npm run start:prod
+WorkingDirectory=$ROOT_FOLDER_BACKEND_API
+Restart=always
+User=$SERVICE_USER
+Group=$SERVICE_USER
+
+[Install]
+WantedBy=multi-user.target
