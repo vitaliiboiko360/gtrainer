@@ -3,9 +3,9 @@ Description=NestJS Backend API
 After=network.target
 
 [Service]
-Environment="SERVICE_USER=%u" "SERVICE_GROUP=%g" "SERVICE_HOME=%h" "ROOT_FOLDER_BACKEND_API=%h/gtrainer/"
-ExecStartPre=/bin/bash -c "cd \"${ROOT_FOLDER_BACKEND_API}\"; ${SERVICE_HOME}/.nvm/versions/node/v22.14.0/bin/npm run build"
-ExecStart=${SERVICE_HOME}/.nvm/versions/node/v22.14.0/bin/npm run start:prod'
+Environment="SERVICE_USER=%u" "SERVICE_GROUP=%g" "SERVICE_HOME=%h" "ROOT_FOLDER_BACKEND_API=%h/gtrainer/" "node=%h/.nvm/versions/node/v22.14.0/bin/node"
+ExecStartPre=/bin/bash -c "cd \"${ROOT_FOLDER_BACKEND_API}\"; \"${SERVICE_HOME}/.nvm/versions/node/v22.14.0/bin/npm\" run build"
+ExecStart=/bin/bash -c "\"${SERVICE_HOME}/.nvm/versions/node/v22.14.0/bin/npm\" run start:prod"
 #WorkingDirectory=$ROOT_FOLDER_BACKEND_API
 Restart=always
 RestartSec=20
