@@ -7,8 +7,8 @@ Environment="SERVICE_USER=%u"
 Environment="SERVICE_GROUP=%g"
 Environment="SERVICE_HOME=%h"
 Environment="ROOT_FOLDER_BACKEND_API=%h/gtrainer/"
-ExecStartPre=/bin/bash -c "cd \"${ROOT_FOLDER_BACKEND_API}\"; \"${SERVICE_HOME}/.nvm/versions/node/v22.14.0/bin/npm\" run build"
-ExecStart=/bin/bash -c "cd \"${ROOT_FOLDER_BACKEND_API}\"; \"${SERVICE_HOME}/.nvm/versions/node/v22.14.0/bin/node\" dist/main.js"
+ExecStartPre=/bin/bash -c "cd \"${ROOT_FOLDER_BACKEND_API}\"; echo $PWD"
+ExecStart=/bin/bash -c "echo $PWD"
 #WorkingDirectory=$ROOT_FOLDER_BACKEND_API
 Restart=always
 RestartSec=20
