@@ -4,13 +4,11 @@ After=network.target
 
 [Service]
 Environment="SERVICE_USER=%u" "SERVICE_GROUP=%g" "SERVICE_HOME=%h" "ROOT_FOLDER_BACKEND_API=%h/gtrainer/"
-ExecStartPre=/bin/bash -c "cd \"${ROOT_FOLDER_BACKEND_API}\"; echo \"${SERVICE_USER}\"; echo '${SERVICE_HOME}/.nvm/versions/node/v22.14.0/bin/npm run build'"
-ExecStart=echo '${SERVICE_HOME}/.nvm/versions/node/v22.14.0/bin/npm run start:prod'
+ExecStartPre=/bin/bash -c "cd \"${ROOT_FOLDER_BACKEND_API}\"; ${SERVICE_HOME}/.nvm/versions/node/v22.14.0/bin/npm run build"
+ExecStart=${SERVICE_HOME}/.nvm/versions/node/v22.14.0/bin/npm run start:prod'
 #WorkingDirectory=$ROOT_FOLDER_BACKEND_API
 Restart=always
 RestartSec=20
-User='${SERVICE_USER}'
-Group='${SERVICE_GROUP}'
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
