@@ -3,15 +3,17 @@ Description=NestJS Backend API
 After=network.target
 
 [Service]
+Type=exec
 Environment="SERVICE_USER=%u"
 Environment="SERVICE_GROUP=%g"
 Environment="SERVICE_HOME=%h"
 Environment="ROOT_FOLDER_BACKEND_API=%h/gtrainer/"
-ExecStartPre=/bin/bash -c "cd \"${ROOT_FOLDER_BACKEND_API}\"; echo $PWD"
-ExecStart=/bin/bash -c "echo $PWD"
+Environment="NVM_DIR=%h/.nvm"
+Environment="NODE_PATH=%h/.nvm/versions/node/v22.14.0/lib/node_modules"
+ExecStart=/bin/bash -c "cd \"${ROOT_FOLDER_BACKEND_API}\"; echo .. ; export PATH=$PATH:$SERVICE_HOME/.nvm/versions/node/v22.14.0/bin/ ; node -v ; echo $PWD ; echo . ; npm nest build ;echo $PATH ; env "
 #WorkingDirectory=$ROOT_FOLDER_BACKEND_API
 Restart=always
-RestartSec=20
+RestartSec=10
 
 [Install]
 WantedBy=default.target
