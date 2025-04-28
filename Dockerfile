@@ -34,7 +34,7 @@ RUN sudo -H -u $USER curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40
 ENV NVM_DIR=/home/$USER/.nvm
 ENV USER=$USER
 # install node
-RUN sudo -H -u $USER bash -c "source $NVM_DIR/nvm.sh && nvm install $NODE_VERSION && nvm use $NODE_VERSIONnvm use $NODE_VERSION"
+RUN sudo -H -u $USER bash -c "source $NVM_DIR/nvm.sh && nvm install $NODE_VERSION && nvm use $NODE_VERSION"
 #RUN sudo -H -u $USER bash -c "nvm install $NODE_VERSION"
 #RUN sudo -H -u $USER bash -c "nvm use $NODE_VERSION"
 
