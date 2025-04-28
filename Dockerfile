@@ -15,13 +15,13 @@ WORKDIR /gtrainer
 
 RUN --network=host
 
-RUN userdel -r ubuntu
-RUN useradd -m -o -u 1000 -U $USER -G sudo
-RUN usermod -a -G sudo $USER
-
 # install must have
 RUN apt-get update && apt-get install -y vim nano zsh curl git sudo
 
+RUN userdel -r ubuntu
+RUN useradd -m -o -u 1000 -U $USER -G sudo
+RUN usermod -a -G sudo $USER
+RUN echo '$USER ALL=(ALL:ALL) NOPASSWD:ALL' > /etc/sudoers.d/user
 
 ARG NODE_VERSION=22
 
@@ -36,7 +36,7 @@ RUN sudo -H -u $USER bash -c "source $NVM_DIR/nvm.sh && nvm install $NODE_VERSIO
 #RUN sudo -H -u $USER bash -c "nvm use $NODE_VERSION"
 
 # set ENTRYPOINT for reloading nvm-environment
-ENTRYPOINT /bin/bash -c "source $NVM_DIR/nvm.sh && cd /gtrainer && npm install && npm run build && npm run start:prod"
+ENTRYPOINT sudo /bin/bash -c "source $NVM_DIR/nvm.sh && cd /gtrainer && npm install && npm run build && npm run start:prod"
 
 # set cmd to bash
 CMD ["/bin/bash"]
