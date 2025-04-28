@@ -1,0 +1,13 @@
+services:
+  api:
+    image: ubuntu:24.04
+    ports:
+      - 2080:80
+    volumes:
+      - type: bind
+        source: $HOME/gtrainer
+        target: /gtrainer
+        read_only: false
+
+networks:
+  driver: host
