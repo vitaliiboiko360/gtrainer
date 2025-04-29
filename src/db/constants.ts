@@ -1,2 +1,2 @@
-export const MONGODB_CONNECTION_STRING = 'mongodb://192.168.0.101:9999/spanish';
+export const MONGODB_CONNECTION_STRING = 'mongodb://127.0.0.1:27017/spanish';
 export const MONGODB_CONNECTION = 'MONGODB_CONNECTION';
