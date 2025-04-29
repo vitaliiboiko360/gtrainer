@@ -19,11 +19,12 @@ type TranslationLineDetails = {
   translations: Array<WordDetails>;
 };
 
-type TranslationLine = {
+export type TranslationLine = {
   originalLine: string;
   translation: TranslationLineDetails;
 };
 
-export interface TranslationBase {
+export class TranslationBase {
+  name: string;
   translations: Array<TranslationLine>;
 }
