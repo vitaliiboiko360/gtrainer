@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { TranslationService } from './translation.service';
 import { CreateTranslationDto } from './dto/create-translation.dto';
 import { UpdateTranslationDto } from './dto/update-translation.dto';
@@ -7,28 +15,28 @@ import { UpdateTranslationDto } from './dto/update-translation.dto';
 export class TranslationController {
   constructor(private readonly translationService: TranslationService) {}
 
-  @Post()
-  create(@Body() createTranslationDto: CreateTranslationDto) {
-    return this.translationService.create(createTranslationDto);
+  // @Post()
+  // create(@Body() createTranslationDto: CreateTranslationDto) {
+  //   return this.translationService.create(createTranslationDto);
+  // }
+
+  // @Get()
+  // findAll() {
+  //   return this.translationService.findAll();
+  // }
+
+  @Get(':name')
+  findOne(@Param('name') name: string) {
+    return this.translationService.findOne(name);
   }
 
-  @Get()
-  findAll() {
-    return this.translationService.findAll();
-  }
+  // @Patch(':id')
+  // update(@Param('id') id: string, @Body() updateTranslationDto: UpdateTranslationDto) {
+  //   return this.translationService.update(+id, updateTranslationDto);
+  // }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.translationService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateTranslationDto: UpdateTranslationDto) {
-    return this.translationService.update(+id, updateTranslationDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.translationService.remove(+id);
-  }
+  // @Delete(':id')
+  // remove(@Param('id') id: string) {
+  //   return this.translationService.remove(+id);
+  // }
 }
