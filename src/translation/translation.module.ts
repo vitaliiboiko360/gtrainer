@@ -6,4 +6,6 @@ import { TranslationController } from './translation.controller';
   controllers: [TranslationController],
   providers: [TranslationService],
 })
-export class TranslationModule {}
+export class TranslationModule {
+  constructor(private translationService: TranslationService) {}
+}
