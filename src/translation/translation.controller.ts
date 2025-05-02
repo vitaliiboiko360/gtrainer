@@ -11,7 +11,7 @@ import { TranslationService } from './translation.service';
 import { CreateTranslationDto } from './dto/create-translation.dto';
 import { UpdateTranslationDto } from './dto/update-translation.dto';
 
-@Controller('translation')
+@Controller('translations')
 export class TranslationController {
   constructor(private readonly translationService: TranslationService) {}
 
